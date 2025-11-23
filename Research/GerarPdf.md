@@ -18,5 +18,13 @@
 
     https://youtu.be/5SZvsO-H_5A?si=Vzv9pgIUq33I5m6j
 
+- Getting started
+
+    https://www.questpdf.com/getting-started.html
+
+- Dev Community
+
+    https://dev.to/olufemi_oyedepo/pdf-generation-using-questpdf-in-aspnet-core-part-1-2a34    
+
 2. PDFSharp 
 3. MigraDoc
