@@ -1,9 +1,5 @@
 # ARQUITETURA DE SOFTWARE
 
-- ARQUITETURA DE SOFTWARE para INICIANTES: as principais dúvidas em 10 minutos
-
-    https://youtu.be/4svHZWR-_OE?si=jJib1-20R8L6Iv-G
-
 - Arquitetura de Software: PARADIGMAS de Programação Ep #01
 
     https://youtu.be/pbUS-1-cjqk?si=ajCt8FKAA5Tnh_sJ
