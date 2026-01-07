@@ -1,5 +1,7 @@
 # [ARQUITETURA DE SOFTWARE para INICIANTES: as principais dúvidas em 10 minutos] (https://youtu.be/4svHZWR-_OE?si=jJib1-20R8L6Iv-G)
 
+Data: 06-01-26
+
 00:00:00 Olá, eu sou a Ju Amoasei, sou a instrutora e líder de conteúdo na Escola de Programação da Alura. Hoje, vamos conversar um pouco sobre arquitetura de software. Quais são as primeiras coisas que pensamos e dúvidas que temos quando entramos em contato com esse assunto? Vamos lá? Primeira coisa, o que é arquitetura de software? Você pode ter encontrado esse termo associado a coisas como, por exemplo, os esquemáticos de um sistema ou as definições de roadmap do desenvolvimento de um sistema ou também uma abstração que representa,
 
 00:00:34 que documenta a complexidade de um sistema. De forma geral, a arquitetura define o comportamento e as características de uma aplicação. Isso se dá de algumas formas que constituem o trabalho da arquitetura. Vamos lá. A arquitetura define uma solução estruturada para todos os requisitos de um sistema, sejam requisitos técnicos ou requisitos operacionais, por exemplo. E essa solução vai depender do que o domínio do negócio precisa, ou seja, o que o seu negócio quer e precisa desenvolver. Do momento em que isso será desenvolvido, do que um produto, um sistema,
