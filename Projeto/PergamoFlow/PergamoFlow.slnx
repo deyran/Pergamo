@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="PFlow-Database/PFlow-Database.csproj" />
+  <Project Path="PFlow-Desktop/PFlow-Desktop.csproj" />
+  <Project Path="PFlow-Domain/PFlow-Domain.csproj" />
+</Solution>
