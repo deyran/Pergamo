@@ -95,11 +95,9 @@
 
 # Comercial
 
-- COM_
+## Produto - Uniforme
 
-## Produto
-
-  - PRD_Uniforme
+- COM_Uniforme
 
     - idUniforme
     - Descricao
@@ -107,65 +105,71 @@
     - ValorUnit
     - Estoque: 
         
-      Se (PRD_Uniforme.Estoque >= (PRD_Uniforme.Estoque - VND_ItensVenda.Quantidade)) Então
-        FIN_Uniforme.Estoque = (FIN_Uniforme.Estoque - FIN_ItensVenda.Quantidade);
+    Se 
+      (COM_Uniforme.Estoque >= (COM_Uniforme.Estoque - COM_ItensVenda.Quantidade)) 
+    Então
+      COM_Uniforme.Estoque = (COM_Uniforme.Estoque - COM_ItensVenda.Quantidade);
 
-  - PRD_UniformeTamanho
+- COM_UniformeTamanho
 
-    - idTamanho
-    - Descricao: 	
+  - idTamanho
+  - Descricao: 	
 
-      0: "2 anos"
-      1: "4 anos"
-      2: "6 anos"
-      3: "8 anos"
-      4: "10 anos"
-      5: "12 anos (PP)"
-      6: "14 anos (P)"
-      7: "16 anos (M)"
-      8: "G"
-      9: "GG"
-      10: "XG"
+  0: "2 anos"
+  1: "4 anos"
+  2: "6 anos"
+  3: "8 anos"
+  4: "10 anos"
+  5: "12 anos (PP)"
+  6: "14 anos (P)"
+  7: "16 anos (M)"
+  8: "G"
+  9: "GG"
+  10: "XG"
+
+## Venda
+
+- COM_Venda
+
+  - IdVenda
+  - IdCliente
+  - Data: Data da Operação
+  - Status: 0 - Em aberto; 1 - Liquidado; 3 - Negociado
+  - Total: Somatório (COM_Itens.Total)
+  - Desconto: Somatório (COM_ItensVenda.Desconto)
+
+- COM_ItensVenda
+
+  - IdItens
+  - IdVenda
+  - DataVencimento
+  - DataPago
+  - TipoPG: 0 - Em espécie; 1 - Pix; 2 - Crédito à vista; 3 - Crédito Parcelado; 4 - Boleto
+  - Status: 0 - Liquidado; 2 - Em aberto; 3 - Serasa; 4 - Protestado
+  - Anotacao
+  - Desconto
+  - ValorPag
+  - Quantidade
+  - Total: ValorPag * Quantidade
+
+## Venda - Uniforme
+
+- COM_UniformeVenda
+
+  - idUniforme
+  - IdItens
+  - Situacao: 0 - Entregue; 1 - Não entregue
 
 
+## Venda - Parcelas escolares
 
-  - FIN_UniformeVenda
+- COM_MatriculaVenda
 
-    - PRD_Uniforme.idUniforme e FIN_UniformeVenda.idUniforme => 1-1
-    - FIN_Venda.IdVenda e FIN_UniformeVenda.IdVenda => 1-1
+  - IdMatricula
+  - IdVenda
 
-    - idUniforme
-    - IdVenda
-    - Situacao: 0 - Entregue; 1 - Não entregue
-
-  - FIN_MatriculaVenda
-
-    - SEC_Matricula.IdMatricula e FIN_MatriculaVenda.IdMatricula => 1-1
-    - FIN_MatriculaVenda.IdVenda e FIN_Venda.IdVenda
-
-    - IdMatricula
-    - IdVenda
-
-  - FIN_Venda
-
-    - IdVenda
-    - Data: Data da Operação
-    - Status: 0 - Em aberto; 1 - Liquidado
-    - Total: Somatório (FIN_Itens.Total)    
-
-  - FIN_ItensVenda
-
-    - IdItens
-    - IdVenda
-    - DataVencimento
-    - DataPago
-    - TipoPG: 0 - Em espécie; 1 - Pix; 2 - Crédito à vista; 3 - Crédito Parcelado; 4 - Boleto
-    - Status: 0 - Liquidado; 2 - Em aberto; 3 - Serasa; 4 - Protestado
-    - Anotacao
-    - Desconto
-    - ValorPag
-    - Quantidade
-    - Total: ValorPag * Quantidade
+  *SEC_Matricula.IdMatricula e COM_MatriculaVenda.IdMatricula => 1-1*
+  *COM_MatriculaVenda.IdVenda e COM_Venda.IdVenda*
 
 # Pedagógico
 
