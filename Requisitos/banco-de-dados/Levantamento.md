@@ -93,11 +93,11 @@
 
     - IdMatricula
 
-# Comercial
+# Financeiro
 
 ## Produto - Uniforme
 
-- COM_Uniforme
+- FIN_Uniforme
 
     - idUniforme
     - Descricao
@@ -106,11 +106,11 @@
     - Estoque: 
         
     Se 
-      (COM_Uniforme.Estoque >= (COM_Uniforme.Estoque - COM_ItensVenda.Quantidade)) 
+      (FIN_Uniforme.Estoque >= (FIN_Uniforme.Estoque - FIN_ItensVenda.Quantidade)) 
     Então
-      COM_Uniforme.Estoque = (COM_Uniforme.Estoque - COM_ItensVenda.Quantidade);
+      FIN_Uniforme.Estoque = (FIN_Uniforme.Estoque - FIN_ItensVenda.Quantidade);
 
-- COM_UniformeTamanho
+- FIN_UniformeTamanho
 
   - idTamanho
   - Descricao: 	
@@ -129,16 +129,16 @@
 
 ## Venda
 
-- COM_Venda
+- FIN_Venda
 
   - IdVenda
   - IdCliente
   - Data: Data da Operação
   - Status: 0 - Em aberto; 1 - Liquidado; 3 - Negociado
-  - Total: Somatório (COM_Itens.Total)
-  - Desconto: Somatório (COM_ItensVenda.Desconto)
+  - Total: Somatório (FIN_Itens.Total)
+  - Desconto: Somatório (FIN_ItensVenda.Desconto)
 
-- COM_ItensVenda
+- FIN_ItensVenda
 
   - IdItens
   - IdVenda
@@ -154,7 +154,7 @@
 
 ## Venda - Uniforme
 
-- COM_UniformeVenda
+- FIN_UniformeVenda
 
   - idUniforme
   - IdItens
@@ -163,13 +163,13 @@
 
 ## Venda - Parcelas escolares
 
-- COM_MatriculaVenda
+- FIN_MatriculaVenda
 
   - IdMatricula
   - IdVenda
 
-  *SEC_Matricula.IdMatricula e COM_MatriculaVenda.IdMatricula => 1-1*
-  *COM_MatriculaVenda.IdVenda e COM_Venda.IdVenda*
+  *SEC_Matricula.IdMatricula e FIN_MatriculaVenda.IdMatricula => 1-1*
+  *FIN_MatriculaVenda.IdVenda e FIN_Venda.IdVenda*
 
 # Pedagógico
 
