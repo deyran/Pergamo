@@ -1,4 +1,3 @@
 # Pergamo
-## Requisitos
-### Requisitos - Banco de dados
-#### Pedagógico
+## Requisitos - Banco de dados
+### Pedagógico - Organização

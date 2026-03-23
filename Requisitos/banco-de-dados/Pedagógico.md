@@ -1,12 +1,14 @@
 # Pedagógico
 
-- PED_Classe
+## Organização 
+
+- PED_ORG_Classe
 
   - IdClasse
   - Descricao
   - Nivel: 0 - Fundamental I; 1 - Fundamental II; 2 - Médio
 
-- PED_Turma
+- PED_ORG_Turma
 
   - IdTurma
   - IdClasse
@@ -15,30 +17,30 @@
   - Turno: 0 - Matutino; 1 - Vespertino; 2 - Noturno; 3 - Integral
   - CapMaxima
 
-- PED_TurmaAluno
+- PED_ORG_TurmaAluno
     
   - IdTurma
   - IdAluno
   - Status: 0 - Ativo; 1 - Trancado; 2 - Transferido
 
-- PED_Disciplina
+- PED_ORG_Disciplina
   
   - IdDisciplina
   - Descricao
   - Abreviado
 
-- PED_ClasseDisc
+- PED_ORG_ClasseDisc
   
   - IdClasse
   - IdDisciplina
 
-- PED_DiscProf
+- PED_ORG_DiscProf
 
   - IdDiscProf
   - IdDisciplina
   - IdProfessor
 
-- Ped_Grade
+- PED_ORG_Grade
 
   - IdGrade
   - IdTurma
@@ -47,17 +49,17 @@
   - Fim: 00:00
   - Tipo: 0 - Aula; 1 - Intervalo
 
-- Ped_Aula
+- PED_ORG_Aula
 
   - IdAula
-  - IdGrade
+  - IdGrade: Grade do tipo 0 - Aula, pois o tipo 1 - Intervalor é somente sobre intervalo
   - IdDiscProf
   - DataAula
   - HoraAula
-  - Status: 0 - Realizada; 1 - Cancelada; 2 - Substituída
+  - StatusAula: 0 - Presencial; 1 - Ead; 2 - Externa;
 
-- Ped_Frequencia
+- PED_ORG_Frequencia: OBS: O não registro de aluna implica em falta 
 
   - IdAula
   - IdAluno
-  - Status: 0 - Presente; 1 - Falta; 3 - Justificada    
+  - StatusFreq: 0 - Presente; 1 - Justificado
