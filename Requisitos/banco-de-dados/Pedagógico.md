@@ -2,6 +2,8 @@
 
 ## Organização 
 
+## Organização 
+
 - PED_ORG_Classe
 
   - IdClasse
@@ -29,18 +31,13 @@
   - Descricao
   - Abreviado
 
-- PED_ORG_ClasseDisc
-  
-  - IdClasse
-  - IdDisciplina
-
 - PED_ORG_DiscProf
 
   - IdDiscProf
   - IdDisciplina
   - IdProfessor
 
-- PED_ORG_Grade
+- PED_ORG_Grade: Planejamento de horários da turma
 
   - IdGrade
   - IdTurma
@@ -49,11 +46,17 @@
   - Fim: 00:00
   - Tipo: 0 - Aula; 1 - Intervalo
 
-- PED_ORG_Aula
+- PED_ORG_GradeAula: Planejamento de horários das aulas e professor. Somente Grade do tipo 0
+  
+  - IdGradeAula	
+  - IdGrade
+  - IdDiscProf
+
+- PED_ORG_Aula: Registro de aulas de fato executadas
 
   - IdAula
-  - IdGrade: Grade do tipo 0 - Aula, pois o tipo 1 - Intervalor é somente sobre intervalo
-  - IdDiscProf
+  - IdGradeAula: Aula Planejada
+  - IdDiscProf: Aula realizada
   - DataAula
   - HoraAula
   - StatusAula: 0 - Presencial; 1 - Ead; 2 - Externa;
