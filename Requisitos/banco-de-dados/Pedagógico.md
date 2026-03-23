@@ -2,8 +2,6 @@
 
 ## Organização 
 
-## Organização 
-
 - PED_ORG_Classe
 
   - IdClasse
