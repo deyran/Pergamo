@@ -1,3 +1,2 @@
-# Pergamo
-## Requisitos - Banco de dados
-### Pedagógico - Organização
+# Pergamo - Requisitos - Google AI Studio
+## Avaliação
