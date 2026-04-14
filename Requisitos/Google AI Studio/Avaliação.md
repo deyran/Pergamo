@@ -1,11 +1,11 @@
 # Pergamo - Requisitos - Google AI Studio
-## Avaliação
+## Processo de Avaliação
 
 - **Visão Geral**
 
   - 4 Etapas de avaliação.
   - Estado da avaliação: Elaboração, Produção e Execução.
-  - Atores envolvidos: Aluno, Professor, Secretária e Diretorial.
+  - Atores envolvidos: Aluno, Professor, Secretária e Diretoria.
   - Processos: Mapa de Notas e Boletim
   
 - **Principais Tabelas**
