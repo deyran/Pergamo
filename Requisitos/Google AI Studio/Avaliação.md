@@ -65,59 +65,44 @@
           5: Recuperação Final
 
 
+  - MapaAvaliacaoNota
 
-  - MapaCriterio
-    
-    - idCriterio
-    - IdMapa
-    - Tipo:
-          0: Atividades em sala
-          1: Atividades Livro
-          2: Atividades Caderno
-          3: Assiduidade
-          4: Comportamento
-          5: Seminário
-          6: Trabalhos Escrito
-    - Nota       
-
-  - MapaCriterioAluno
-
-    - idCriterio
     - IdAluno: IdPessoa
-
-
-
-  - MapaEvento
+    - IdAvaliacao
+    - Nota
     
-    - idEvento
-    - IdMapa
-    - Tipo:
-          0: Sarau Literário
-          1: Mostra Folclórica
-          2: Jogos Internos
-          3: Feira de Geociências
-          4: Feira do Empreededorismo
-    - Nota        
-
-  - MapaEventoAluno
-
-    - idEvento
-    - IdAluno: IdPessoa
-
-
-
-  - MapaExame
+  - MapaAvaliacao
     
-    - idExame
-    - IdMapa
+    - IdMapa  
+    - IdAvaliacao
     - Tipo:
-          0: Prova
-          1: Simulado
-    - Nota  
+        0: Critério
+        1: Evento
+        2: Exame
 
-  - MapaExameAluno
-
-    - idExame
-    - IdAluno: IdPessoa
-
+  - MapaAvaliacaoIten
   
+    - IdIten
+    - IdAvaliacao
+    - Descricao
+
+    IdAvaliacao | IdIten  | Descricao
+    0           | 0       | Atividades em sala
+    0           | 1       | Atividades Livro
+    0           | 2       | Atividades Caderno
+    0           | 3       | Assiduidade
+    0           | 4       | Comportamento
+    0           | 5       | Seminário
+    0           | 6       | Trabalhos Escrito
+    1           | 7       | Sarau Literário
+    1           | 8       | Mostra Folclórica
+    1           | 9       | Jogos Internos
+    1           | 10      | Feira de Geociências
+    1           | 11      | Feira do Empreededorismo
+    2           | 12      | Sarau Literário
+    2           | 13      | Mostra Folclórica
+    2           | 14      | Jogos Internos
+    2           | 15      | Feira de Geociências
+    2           | 16      | Feira do Empreededorismo
+    3           | 17      | Prova
+    3           | 18      | Simulado
