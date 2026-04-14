@@ -65,22 +65,30 @@
           5: Recuperação Final
 
 
-  - MapaAvaliacaoNota
-
-    - IdAluno: IdPessoa
-    - IdAvaliacao
-    - Nota
-    
   - MapaAvaliacao
     
-    - IdMapa  
+    - IdMapaAva
+    - IdMapa
+    - IdAvaliacao
+    - IdItenAva: AvaliacaoIten-IdIten
+    - Peso: Ex Comportamento vale 2.0  
+  
+  - MapaAvaliacaoAluno
+
+    - IdMapaAva
+    - IdAluno: Pessoa-IdPessoa
+    - Nota
+
+  
+  - Avaliacao
+
     - IdAvaliacao
     - Tipo:
         0: Critério
         1: Evento
         2: Exame
 
-  - MapaAvaliacaoIten
+  - AvaliacaoIten
   
     - IdIten
     - IdAvaliacao
@@ -99,10 +107,5 @@
     1           | 9       | Jogos Internos
     1           | 10      | Feira de Geociências
     1           | 11      | Feira do Empreededorismo
-    2           | 12      | Sarau Literário
-    2           | 13      | Mostra Folclórica
-    2           | 14      | Jogos Internos
-    2           | 15      | Feira de Geociências
-    2           | 16      | Feira do Empreededorismo
-    3           | 17      | Prova
-    3           | 18      | Simulado
+    2           | 12      | Prova
+    2           | 13      | Simulado
