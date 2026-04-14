@@ -69,7 +69,6 @@
     
     - IdMapaAva
     - IdMapa
-    - IdAvaliacao
     - IdItenAva: AvaliacaoIten-IdIten
     - Peso: Ex Comportamento vale 2.0  
   
