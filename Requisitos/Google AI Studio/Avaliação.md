@@ -8,7 +8,7 @@
   - Atores envolvidos: Aluno, Professor, Secretária e Diretoria.
   - Processos: Mapa de Notas e Boletim
   
-- **Principais Tabelas**
+- **Organização**
   
   - Pessoa: Alunos, Professores, Usuários do Sistema
     
@@ -49,73 +49,75 @@
       - IdDisciplina
       - IdProfessor: IdPessoa
 
-  - Mapa de Nota
+- **Mapa de Notas**
+  
+  - MapaNota
+  
+    - IdMapa
+    - IdTurma
+    - IdDiscProf
+    - Etapa: 
+          0: 1º Avaliação
+          1: 2º Avaliação
+          2: Recuperação Paralela
+          3: 3 Avaliação
+          4: 4 Avaliação
+          5: Recuperação Final
+
+
+
+  - MapaCriterio
     
-    - MapaNota
+    - idCriterio
+    - IdMapa
+    - Tipo:
+          0: Atividades em sala
+          1: Atividades Livro
+          2: Atividades Caderno
+          3: Assiduidade
+          4: Comportamento
+          5: Seminário
+          6: Trabalhos Escrito
+    - Nota       
+
+  - MapaCriterioAluno
+
+    - idCriterio
+    - IdAluno: IdPessoa
+
+
+
+  - MapaEvento
     
-      - IdMapaNota
-      - IdTurma
-      - IdDiscProf
-      - Etapa: 
-            0: 1º Avaliação
-            1: 2º Avaliação
-            2: Recuperação Paralela
-            3: 3 Avaliação
-            4: 4 Avaliação
-            5: Recuperação Final
+    - idEvento
+    - IdMapa
+    - Tipo:
+          0: Sarau Literário
+          1: Mostra Folclórica
+          2: Jogos Internos
+          3: Feira de Geociências
+          4: Feira do Empreededorismo
+    - Nota        
+
+  - MapaEventoAluno
+
+    - idEvento
+    - IdAluno: IdPessoa
+
+
+
+  - MapaExame
     
-    - MapaNotaAvaliacao
+    - idExame
+    - IdMapa
+    - Tipo:
+          0: Prova
+          1: Simulado
+    - Nota  
 
-      - idMapaNotaAv
-      - IdMapaNota
-      - IdAluno: IdPessoa
-      - NotaTotal
+  - MapaExameAluno
 
-    - MapaNotaCriterio
-      
-      - idMapaNotaCrit
-      - idMapaNotaAv
-      - Tipo:
-            0: Atividades em sala
-            1: Atividades Livro
-            2: Atividades Caderno
-            3: Assiduidade
-            4: Comportamento
-            5: Seminário
-            6: Trabalhos Escrito
-      - Nota       
+    - idExame
+    - IdAluno: IdPessoa
 
-    - MapaNotaEvento
-      
-      - idMapaNotaEvento
-      - idMapaNotaAv
-      - Tipo:
-            0: Atividades em sala
-            1: Atividades Livro
-            2: Atividades Caderno
-            3: Assiduidade
-            4: Comportamento
-            5: Seminário
-            6: Trabalhos Escrito
-      - Nota        
-
-    - MapaNotaExame
-      
-      - idMapaNotaEvento
-      - idMapaNotaAv
-      - Tipo:
-            0: Prova
-            1: Simulado
-      - Nota        
-
-  - Boletim
-    
-    - IdBoletim
-    - idMapaNotaAv
-    - Situacao: 
-        
-        0: Em aberto (O período ainda não acabou; faltam notas)
-        1: Aprovado
-        2: Reprovado
-
-- **Processos**
+  
