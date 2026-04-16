@@ -83,7 +83,7 @@
 
     - IdAvaliacao
     - Tipo:
-        0: Critério
+        0: Atividade
         1: Evento
         2: Exame
 
