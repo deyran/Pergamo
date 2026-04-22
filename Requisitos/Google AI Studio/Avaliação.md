@@ -4,13 +4,13 @@
 - **Visão Geral**
 
   - 4 Etapas de avaliação.
-  - Estado da avaliação: Elaboração, Produção e Execução.
-  - Atores envolvidos: Aluno, Professor, Secretária e Diretoria.
+  - Estado da avaliação: Elaboração  |   Produção e Execução.
+  - Atores envolvidos: Aluno  |   Professor  |   Secretária e Diretoria.
   - Processos: Mapa de Notas e Boletim
   
 - **Organização**
   
-  - Pessoa: Alunos, Professores, Usuários do Sistema
+  - Pessoa: Alunos  |   Professores  |   Usuários do Sistema
     
     - Pessoa
         
@@ -51,11 +51,11 @@
 
 - **Mapa de Notas**
   
-  - MapaNota
+  - MpNota
   
-    - IdMapa
+    - IdMapa (PK)
+    
     - IdTurma
-    - IdDiscProf
     - Etapa: 
           0: 1º Avaliação
           1: 2º Avaliação
@@ -64,47 +64,29 @@
           4: 4 Avaliação
           5: Recuperação Final
 
+  - MpNotaAvaliacao
 
-  - MapaAvaliacao
-    
-    - IdMapaAva
-    - IdMapa
-    - IdItenAva: AvaliacaoIten-IdIten
-    - Peso: Ex Comportamento vale 2.0  
+    - IdAva (PK)
+
+    - IdMapa: 0 - 1º Avaliação | 9º ano
+    - IdDiscProf: 1 - Marcos | Português
+    - IdAvaDesc: 5 - Sarau Literário
+
+  - MpNotaAvaliacaoDesc
   
-  - MapaAvaliacaoAluno
-
-    - IdMapaAva
-    - IdAluno: Pessoa-IdPessoa
-    - Nota
-
-  
-  - Avaliacao
-
-    - IdAvaliacao
-    - Tipo:
-        0: Atividade
-        1: Evento
-        2: Exame
-
-  - AvaliacaoIten
-  
-    - IdIten
-    - IdAvaliacao
+    - IdAvaDesc (PK)
     - Descricao
 
-    IdAvaliacao | IdIten  | Descricao
-    0           | 0       | Atividades em sala
-    0           | 1       | Atividades Livro
-    0           | 2       | Atividades Caderno
-    0           | 3       | Assiduidade
-    0           | 4       | Comportamento
-    0           | 5       | Seminário
-    0           | 6       | Trabalhos Escrito
-    1           | 7       | Sarau Literário
-    1           | 8       | Mostra Folclórica
-    1           | 9       | Jogos Internos
-    1           | 10      | Feira de Geociências
-    1           | 11      | Feira do Empreededorismo
-    2           | 12      | Prova
-    2           | 13      | Simulado
+    IdAvaAux  | Descricao
+    0         | Atividades em sala
+    1         | Atividades Livro
+    2         | Atividades Caderno
+    3         | Seminário
+    4         | Trabalhos Escrito
+    5         | Sarau Literário
+    6         | Mostra Folclórica
+    7         | Jogos Internos
+    8         | Feira de Geociências
+    9         | Feira do Empreendedorismo
+    10        | Prova Escrita
+    11        | Simulado
