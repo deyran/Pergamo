@@ -70,24 +70,24 @@
     - IdDiscProf: 1 - Marcos | Português
     - IdAvaDesc: 5 - Sarau Literário
 
-  - *MpNotaAvaliacaoDesc*
-  
-    - IdAvaDesc (PK)
-    - Descricao
+    - *MpNotaAvaliacaoDesc*
+    
+      - IdAvaDesc (PK)
+      - Descricao
 
-    IdAvaAux | Descricao
-    0        | Atividades em sala
-    1        | Atividades Livro
-    2        | Atividades Caderno
-    3        | Seminário
-    4        | Trabalhos Escrito
-    5        | Sarau Literário
-    6        | Mostra Folclórica
-    7        | Jogos Internos
-    8        | Feira de Geociências
-    9        | Feira do Empreendedorismo
-    10       | Prova Escrita
-    11       | Simulado
+      IdAvaAux | Descricao
+      0        | Atividades em sala
+      1        | Atividades Livro
+      2        | Atividades Caderno
+      3        | Seminário
+      4        | Trabalhos Escrito
+      5        | Sarau Literário
+      6        | Mostra Folclórica
+      7        | Jogos Internos
+      8        | Feira de Geociências
+      9        | Feira do Empreendedorismo
+      10       | Prova Escrita
+      11       | Simulado
 
   - *MpNotaAvaliacaoItens*
 
@@ -101,7 +101,6 @@
     1          | Criatividade
     2          | Participação
     3          | Trabalho em Equipe
-
 
   - *MpNotaAvaliacaoAluno*
 
