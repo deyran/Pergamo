@@ -54,7 +54,6 @@
   - *MpNota*
   
     - IdMapa (PK)
-    
     - IdTurma
     - Etapa: 
           0: 1º Avaliação
@@ -67,7 +66,6 @@
   - *MpNotaAvaliacao*
 
     - IdAva (PK)
-
     - IdMapa: 0 - 1º Avaliação | 9º ano
     - IdDiscProf: 1 - Marcos | Português
     - IdAvaDesc: 5 - Sarau Literário
@@ -98,8 +96,21 @@
     - IdAvaDesc: 5 - Sarau Literário
     - Descricao: 0 - Expressão Oral
 
-    IdAvaDesc | Descricao
-    0         | Expressão Oral
-    1         | Criatividade
-    2         | Participação
-    3         | Trabalho em Equipe
+    IdAvaItens | Descricao
+    0          | Expressão Oral
+    1          | Criatividade
+    2          | Participação
+    3          | Trabalho em Equipe
+
+
+  - *MpNotaAvaliacaoAluno*
+
+    - IdAva (PK): IdAva- MpNotaAvaliacao
+    - idAluno (PK): IdPessoa - Pessoa
+    - Nota
+    
+  - *MpNotaAvaliacaoItensAluno*: Obs: Opcional
+    
+    - IdAvaItens
+    - idAluno: IdPessoa - Pessoa
+    - Nota
