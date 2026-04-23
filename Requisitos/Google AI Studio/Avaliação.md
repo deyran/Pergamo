@@ -122,9 +122,9 @@
     - NotaItem
   
   - *MpNotaAluno*: Nota final é consolidação NotaItem-MpNotaAvaliacaoItensAluno
-    - IdMapa (PK)
-    - IdMpEtapa: 0-1º Avaliação
-    - idAluno: 0-Rannyere Costa
-    - IdDiscProf: Marcos | Português
-    - IdTurma: 9º Ano | 2026
+    - IdMapa: Autoincremente
+    - IdMpEtapa (PK): 0-1º Avaliação
+    - idAluno (PK): 0-Rannyere Costa
+    - IdDiscProf (PK): Marcos | Português
+    - IdTurma (PK): 9º Ano | 2026
     - NotaFinal
