@@ -121,7 +121,7 @@
     - idAluno (PK): IdPessoa - Pessoa
     - NotaItem
   
-  - *MpNotaAluno*: Nota final é fruto de cálculo da tabela MpNotaAvaliacaoAluno
+  - *MpNotaAluno*: Nota final é fruto de cálculo vindos da tabela MpNotaAvaliacaoAluno
     - IdMapa (PK)
     - IdMpEtapa: 0-1º Avaliação
     - idAluno: 0-Rannyere Costa
