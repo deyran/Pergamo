@@ -51,65 +51,79 @@
 
 - **Mapa de Notas**
   
-  - *MpNota*
+  - *MpNotaEtapas*
   
-    - IdMapa (PK)
-    - IdTurma
-    - Etapa: 
-          0: 1º Avaliação
-          1: 2º Avaliação
-          2: Recuperação Paralela
-          3: 3 Avaliação
-          4: 4 Avaliação
-          5: Recuperação Final
+    - IdMpEtap (PK)
+    - Descricao
+
+      IdMpEtap | Descricao
+      0      | 1º Avaliação
+      1      | 2º Avaliação
+      2      | Recuperação Paralela
+      3      | 3 Avaliação
+      4      | 4 Avaliação
+      5      | Recuperação Final
 
   - *MpNotaAvaliacao*
 
     - IdAva (PK)
-    - IdMapa: 0 - 1º Avaliação | 9º ano
+    - IdMpEtap: 0 - 1º Avaliação
     - IdDiscProf: 1 - Marcos | Português
+    - IdTurma: 9º Ano | 2026
     - IdAvaDesc: 5 - Sarau Literário
+    - DataAva
 
-    - *MpNotaAvaliacaoDesc*
-    
-      - IdAvaDesc (PK)
-      - Descricao
+  - *MpNotaAvaliacaoDesc*
+  
+    - IdAvaDesc (PK)
+    - Descricao
 
-      IdAvaAux | Descricao
-      0        | Atividades em sala
-      1        | Atividades Livro
-      2        | Atividades Caderno
-      3        | Seminário
-      4        | Trabalhos Escrito
-      5        | Sarau Literário
-      6        | Mostra Folclórica
-      7        | Jogos Internos
-      8        | Feira de Geociências
-      9        | Feira do Empreendedorismo
-      10       | Prova Escrita
-      11       | Simulado
+    IdAvaDesc | Descricao
+    0         | Atividades em sala
+    1         | Atividades Livro
+    2         | Atividades Caderno
+    3         | Seminário
+    4         | Trabalhos Escrito
+    5         | Sarau Literário
+    6         | Mostra Folclórica
+    7         | Jogos Internos
+    8         | Feira de Geociências
+    9         | Feira do Empreendedorismo
+    10        | Prova Escrita
+    11        | Simulado
 
   - *MpNotaAvaliacaoItens*
 
     - IdAvaItens (PK)
-    
     - IdAvaDesc: 5 - Sarau Literário
-    - Descricao: 0 - Expressão Oral
+    - IdAvaItensDesc: 0 - Expressão Oral
+    
+  - *MpNotaAvaliacaoItensDesc*
+    
+    - IdAvaItensDesc (PK)
+    - Descricao
 
-    IdAvaItens | Descricao
-    0          | Expressão Oral
-    1          | Criatividade
-    2          | Participação
-    3          | Trabalho em Equipe
+    IdAvaItensDesc | Descricao
+    0              | Expressão Oral
+    1              | Criatividade
+    2              | Participação
+    3              | Trabalho em Equipe
 
   - *MpNotaAvaliacaoAluno*
 
-    - IdAva (PK): IdAva- MpNotaAvaliacao
-    - idAluno (PK): IdPessoa - Pessoa
-    - Nota
-    
+    - IdAva (PK): 1º Avaliação | Marcos-Português | 9º Ano-2026 | Sarau Literário
+    - idAluno (PK): 0-Rannyere Costa
+    - NotaAva
+  
   - *MpNotaAvaliacaoItensAluno*: Obs: Opcional
     
-    - IdAvaItens
-    - idAluno: IdPessoa - Pessoa
-    - Nota
+    - IdAvaItens (PK)
+    - idAluno (PK): IdPessoa - Pessoa
+    - NotaItem
+  
+  - *MpNotaAluno*: Nota final é fruto de cálculo da tabela MpNotaAvaliacaoAluno
+    - IdMapa (PK)
+    - idAluno (PK): 0-Rannyere Costa
+    - IdDiscProf: 1 - Marcos | Português
+    - IdTurma: 9º Ano | 2026
+    - NotaFinal
