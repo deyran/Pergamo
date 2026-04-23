@@ -78,19 +78,19 @@
     - IdAvaDesc (PK)
     - Descricao
 
-    IdAvaDesc | Descricao
-    0         | Atividades em sala
-    1         | Atividades Livro
-    2         | Atividades Caderno
-    3         | Seminário
-    4         | Trabalhos Escrito
-    5         | Sarau Literário
-    6         | Mostra Folclórica
-    7         | Jogos Internos
-    8         | Feira de Geociências
-    9         | Feira do Empreendedorismo
-    10        | Prova Escrita
-    11        | Simulado
+      IdAvaDesc | Descricao
+      0         | Atividades em sala
+      1         | Atividades Livro
+      2         | Atividades Caderno
+      3         | Seminário
+      4         | Trabalhos Escrito
+      5         | Sarau Literário
+      6         | Mostra Folclórica
+      7         | Jogos Internos
+      8         | Feira de Geociências
+      9         | Feira do Empreendedorismo
+      10        | Prova Escrita
+      11        | Simulado
 
   - *MpNotaAvaliacaoItens*
 
@@ -103,28 +103,29 @@
     - IdAvaItensDesc (PK)
     - Descricao
 
-    IdAvaItensDesc | Descricao
-    0              | Expressão Oral
-    1              | Criatividade
-    2              | Participação
-    3              | Trabalho em Equipe
+      IdAvaItensDesc | Descricao
+      0              | Expressão Oral
+      1              | Criatividade
+      2              | Participação
+      3              | Trabalho em Equipe
 
-  - *MpNotaAvaliacaoAluno*
+  - *MpNotaAvaliacaoAluno* 
 
     - IdAva (PK): 1º Avaliação | Marcos-Português | 9º Ano-2026 | Sarau Literário
     - idAluno (PK): 0-Rannyere Costa
-    - NotaAva
+    - NotaAva: É a consolidação NotaItem-MpNotaAvaliacaoItensAluno, se houver
   
-  - *MpNotaAvaliacaoItensAluno*: Obs: Opcional
+  - *MpNotaAvaliacaoItensAluno*
     
     - IdAvaItens (PK)
     - idAluno (PK): IdPessoa - Pessoa
     - NotaItem
   
-  - *MpNotaAluno*: Nota final é consolidação NotaItem-MpNotaAvaliacaoItensAluno
+  - *MpNotaAluno* 
+
     - IdMapa: Autoincremente
     - IdMpEtapa (PK): 0-1º Avaliação
     - idAluno (PK): 0-Rannyere Costa
     - IdDiscProf (PK): Marcos | Português
     - IdTurma (PK): 9º Ano | 2026
-    - NotaFinal
+    - NotaFinal: É consolidação NotaAva-MpNotaAvaliacaoAluno
