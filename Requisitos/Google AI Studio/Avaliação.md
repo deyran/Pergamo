@@ -51,23 +51,23 @@
 
 - **Mapa de Notas**
   
-  - *MpNotaEtapas*
+  - *MpNotaEtapa*
   
-    - IdMpEtap (PK)
+    - IdMpEtapa (PK)
     - Descricao
 
-      IdMpEtap | Descricao
-      0      | 1º Avaliação
-      1      | 2º Avaliação
-      2      | Recuperação Paralela
-      3      | 3 Avaliação
-      4      | 4 Avaliação
-      5      | Recuperação Final
+      IdMpEtapa | Descricao
+      0         | 1º Avaliação
+      1         | 2º Avaliação
+      2         | Recuperação Paralela
+      3         | 3 Avaliação
+      4         | 4 Avaliação
+      5         | Recuperação Final
 
   - *MpNotaAvaliacao*
 
     - IdAva (PK)
-    - IdMpEtap: 0 - 1º Avaliação
+    - IdMpEtapa: 0 - 1º Avaliação
     - IdDiscProf: 1 - Marcos | Português
     - IdTurma: 9º Ano | 2026
     - IdAvaDesc: 5 - Sarau Literário
@@ -95,7 +95,7 @@
   - *MpNotaAvaliacaoItens*
 
     - IdAvaItens (PK)
-    - IdAvaDesc: 5 - Sarau Literário
+    - IdAva: IdAva-MpNotaAvaliacao
     - IdAvaItensDesc: 0 - Expressão Oral
     
   - *MpNotaAvaliacaoItensDesc*
@@ -123,7 +123,8 @@
   
   - *MpNotaAluno*: Nota final é fruto de cálculo da tabela MpNotaAvaliacaoAluno
     - IdMapa (PK)
-    - idAluno (PK): 0-Rannyere Costa
-    - IdDiscProf: 1 - Marcos | Português
+    - IdMpEtapa: 0-1º Avaliação
+    - idAluno: 0-Rannyere Costa
+    - IdDiscProf: Marcos | Português
     - IdTurma: 9º Ano | 2026
     - NotaFinal
