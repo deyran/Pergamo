@@ -20,11 +20,11 @@
 
 - *AVA_MP_Avaliacao*
 
-  - IdAva (PK)
-  - IdMpEtapa (FK): IdMpEtapa-AVA_MP_Etapa
-  - IdDiscProf (FK): IdDiscProf-PED_DiscProf
-  - IdTurma (FK): IdTurma-PED_Turma
-  - IdAvaDesc  (FK): IdAvaDesc-AVA_MP_AvaliacaoDesc
+  - IdAva       (PK)
+  - IdMpEtapa   (FK): IdMpEtapa-AVA_MP_Etapa
+  - IdDiscProf  (FK): IdDiscProf-PED_DiscProf
+  - IdTurma     (FK): IdTurma-PED_Turma
+  - IdAvaDesc   (FK): IdAvaDesc-AVA_MP_AvaliacaoDesc
   - DataAva
 
   IdAva | IdMpEtapa       | IdDiscProf            | IdTurma         | IdAvaDesc | DataAva
