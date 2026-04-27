@@ -21,10 +21,10 @@
 - *AVA_MP_Avaliacao*
 
   - IdAva       (PK)
-  - IdMpEtapa   (FK): IdMpEtapa-AVA_MP_Etapa
-  - IdDiscProf  (FK): IdDiscProf-PED_DiscProf
-  - IdTurma     (FK): IdTurma-PED_Turma
-  - IdAvaDesc   (FK): IdAvaDesc-AVA_MP_AvaliacaoDesc
+  - IdMpEtapa   (FK): IdMpEtapa - AVA_MP_Etapa
+  - IdDiscProf  (FK): IdDiscProf - PED_DiscProf
+  - IdTurma     (FK): IdTurma - PED_Turma
+  - IdAvaDesc   (FK): IdAvaDesc - AVA_MP_AvaliacaoDesc
   - DataAva
 
   IdAva | IdMpEtapa       | IdDiscProf            | IdTurma         | IdAvaDesc | DataAva
@@ -52,9 +52,9 @@
 
 - *AVA_MP_AvaliacaoItens*
 
-  - IdAvaItens (PK)
-  - IdAva: IdAva-AVA_MP_Avaliacao
-  - IdAvaItensDesc: 0 - Expressão Oral
+  - IdAvaItens      (PK)
+  - IdAva           (FK): IdAva - AVA_MP_Avaliacao
+  - IdAvaItensDesc  (FK): IdAvaItensDesc - AVA_MP_AvaliacaoItensDesc
   
 - *AVA_MP_AvaliacaoItensDesc*
   
@@ -69,26 +69,30 @@
 
 - *AVA_MP_AvaliacaoAluno* 
 
-  - IdAva (PK): 1º Avaliação | Marcos-Português | 9º Ano-2026 | Sarau Literário
-  - idAluno (PK): 0-Rannyere Costa
-  - NotaAva: É a consolidação NotaItem-AVA_MP_AvaliacaoItensAluno, se houver
+  - IdAva   (PK): IdAva - AVA_MP_Avaliacao
+  - idAluno (PK): IdPessoa - ADM_Pessoa
+  - NotaAva     : É a consolidação NotaItem-AVA_MP_AvaliacaoItensAluno, se houver
 
 - *AVA_MP_AvaliacaoItensAluno*
   
-  - IdAvaItens (PK)
-  - idAluno (PK): IdPessoa - Pessoa
+  - IdAvaItens  (PK): IdAvaItens - AVA_MP_AvaliacaoItens
+  - idAluno     (PK): IdPessoa - ADM_Pessoa
   - NotaItem
 
-- *AVA_MP_Aluno* 
+- *AVA_MP_Aluno*: Mapa de Notas do Aluno
 
-    - IdMapa: Autoincremente
-    - IdMpEtapa (PK): 0-1º Avaliação
-    - idAluno (PK): 0-Rannyere Costa
-    - IdDiscProf (PK): Marcos | Português
-    - IdTurma (PK): 9º Ano | 2026
-    - NotaFinal: É consolidação NotaAva-AVA_MP_AvaliacaoAluno
-  
-  
+    - IdMpAluno       : AutoIncremento
+    - IdMpEtapa   (PK): IdMpEtapa - AVA_MP_Etapa
+    - idAluno     (PK): IdPessoa - ADM_Pessoa
+    - IdDiscProf  (PK): IdDiscProf - PED_DiscProf
+    - IdTurma     (PK): IdTurma - PED_Turma
+    - NotaFinal       : É consolidação NotaAva - AVA_MP_AvaliacaoAluno
+
+- *AVA_MP_Boletim*: Mapa de Notas do Aluno
+
+  - IdMpAluno (FK): IdMpAluno - AVA_MP_Aluno
+  - Situacao      : 0 - Em andamento; 1 - Aprovado; 2 - Reprovado
+    
 ### SQL - SQLite
 
 CREATE TABLE AVA_MP_Etapa (
@@ -119,4 +123,100 @@ CREATE TABLE AVA_MP_Avaliacao (
     FOREIGN KEY (IdDiscProf) REFERENCES PED_DiscProf(IdDiscProf),
     FOREIGN KEY (IdTurma)    REFERENCES PED_Turma(IdTurma),
     FOREIGN KEY (IdAvaDesc)  REFERENCES AVA_MP_AvaliacaoDesc(IdAvaDesc)
+);
+
+-- #######################################################################
+
+CREATE TABLE AVA_MP_AvaliacaoDesc (
+    IdAvaDesc INTEGER PRIMARY KEY,
+    Descricao TEXT NOT NULL
+);
+
+INSERT INTO AVA_MP_AvaliacaoDesc (IdAvaDesc, Descricao) VALUES 
+(0, 'Atividades em sala'),
+(1, 'Atividades Livro'),
+(2, 'Atividades Caderno'),
+(3, 'Seminário'),
+(4, 'Trabalhos Escrito'),
+(5, 'Sarau Literário'),
+(6, 'Mostra Folclórica'),
+(7, 'Jogos Internos'),
+(8, 'Feira de Geociências'),
+(9, 'Feira do Empreendedorismo'),
+(10, 'Prova Escrita'),
+(11, 'Simulado');
+
+-- #######################################################################
+
+CREATE TABLE AVA_MP_AvaliacaoItens (
+    IdAvaItens     INTEGER PRIMARY KEY AUTOINCREMENT,
+    IdAva          INTEGER NOT NULL,
+    IdAvaItensDesc INTEGER NOT NULL,
+    FOREIGN KEY (IdAva) REFERENCES AVA_MP_Avaliacao(IdAva),
+    FOREIGN KEY (IdAvaItensDesc) REFERENCES AVA_MP_AvaliacaoItensDesc(IdAvaItensDesc)
+);
+
+-- #######################################################################
+
+CREATE TABLE AVA_MP_AvaliacaoItensDesc (
+    IdAvaItensDesc INTEGER PRIMARY KEY,
+    Descricao TEXT NOT NULL
+);
+
+INSERT INTO AVA_MP_AvaliacaoItensDesc (IdAvaItensDesc, Descricao) VALUES 
+(0, 'Expressão Oral'), 
+(1, 'Criatividade'),
+(2, 'Participação'),
+(3, 'Trabalho em Equipe');
+
+-- #######################################################################
+
+CREATE TABLE AVA_MP_AvaliacaoAluno (
+    IdAva     INTEGER NOT NULL,
+    idAluno   INTEGER NOT NULL,
+    NotaAva   REAL, -- Usamos REAL para notas decimais (float)
+    
+    -- Definição da Chave Primária Composta
+    PRIMARY KEY (IdAva, idAluno),
+    
+    -- Definição das Chaves Estrangeiras
+    FOREIGN KEY (IdAva) REFERENCES AVA_MP_Avaliacao(IdAva),
+    FOREIGN KEY (idAluno) REFERENCES ADM_Pessoa(IdPessoa)
+);
+
+-- #######################################################################
+
+CREATE TABLE AVA_MP_AvaliacaoItensAluno (
+    IdAvaItens  INTEGER NOT NULL,
+    idAluno     INTEGER NOT NULL,
+    NotaItem    REAL, -- Nota individual de cada item (ex: Criatividade, Participação)
+
+    -- Definição da Chave Primária Composta (Garante que um aluno não tenha duas notas para o mesmo item)
+    PRIMARY KEY (IdAvaItens, idAluno),
+
+    -- Definição das Chaves Estrangeiras
+    FOREIGN KEY (IdAvaItens) REFERENCES AVA_MP_AvaliacaoItens(IdAvaItens),
+    FOREIGN KEY (idAluno) REFERENCES ADM_Pessoa(IdPessoa)
+);
+
+-- #######################################################################
+
+CREATE TABLE AVA_MP_Aluno (
+    IdMpAluno    INTEGER PRIMARY KEY AUTOINCREMENT,
+    IdMpEtapa    INTEGER NOT NULL,
+    idAluno      INTEGER NOT NULL,
+    IdDiscProf   INTEGER NOT NULL,
+    IdTurma      INTEGER NOT NULL,
+    NotaFinal    REAL, -- Consolidação das notas das avaliações
+
+    -- Definição da Chave Primária Composta (Regra de Negócio)
+    -- Nota: No SQLite, se IdMpAluno é PRIMARY KEY AUTOINCREMENT, 
+    -- usamos uma restrição UNIQUE para garantir a composição PK descrita
+    UNIQUE (IdMpEtapa, idAluno, IdDiscProf, IdTurma),
+
+    -- Definição das Chaves Estrangeiras
+    FOREIGN KEY (IdMpEtapa)  REFERENCES AVA_MP_Etapa(IdMpEtapa),
+    FOREIGN KEY (idAluno)    REFERENCES ADM_Pessoa(IdPessoa),
+    FOREIGN KEY (IdDiscProf) REFERENCES PED_DiscProf(IdDiscProf),
+    FOREIGN KEY (IdTurma)    REFERENCES PED_Turma(IdTurma)
 );
