@@ -1,14 +1,13 @@
-# Pedagógico
+# Pergamo - Banco de Dados
+## Organização pedagógica
 
-## Organização 
-
-- PED_ORG_Classe
+- PED_Classe
 
   - IdClasse
   - Descricao
   - Nivel: 0 - Fundamental I; 1 - Fundamental II; 2 - Médio
 
-- PED_ORG_Turma
+- PED_Turma
 
   - IdTurma
   - IdClasse
@@ -17,25 +16,25 @@
   - Turno: 0 - Matutino; 1 - Vespertino; 2 - Noturno; 3 - Integral
   - CapMaxima
 
-- PED_ORG_TurmaAluno
+- PED_TurmaAluno
     
   - IdTurma
   - IdAluno
   - Status: 0 - Ativo; 1 - Trancado; 2 - Transferido
 
-- PED_ORG_Disciplina
+- PED_Disciplina
   
   - IdDisciplina
   - Descricao
   - Abreviado
 
-- PED_ORG_DiscProf
+- PED_DiscProf
 
   - IdDiscProf
   - IdDisciplina
   - IdProfessor
 
-- PED_ORG_Grade: Planejamento de horários da turma
+- PED_Grade: Planejamento de horários da turma
 
   - IdGrade
   - IdTurma
@@ -44,13 +43,13 @@
   - Fim: 00:00
   - Tipo: 0 - Aula; 1 - Intervalo
 
-- PED_ORG_GradeAula: Planejamento de horários das aulas e professor. Somente Grade do tipo 0
+- PED_GradeAula: Planejamento de horários das aulas e professor. Somente Grade do tipo 0
   
   - IdGradeAula	
   - IdGrade
   - IdDiscProf
 
-- PED_ORG_Aula: Registro de aulas de fato executadas
+- PED_Aula: Registro de aulas de fato executadas
 
   - IdAula
   - IdGradeAula: Aula Planejada
@@ -59,7 +58,7 @@
   - HoraAula
   - StatusAula: 0 - Presencial; 1 - Ead; 2 - Externa;
 
-- PED_ORG_Frequencia: OBS: O não registro de aluna implica em falta 
+- PED_Frequencia: OBS: O não registro de aluna implica em falta 
 
   - IdAula
   - IdAluno
