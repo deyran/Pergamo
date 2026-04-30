@@ -38,4 +38,4 @@
   - Solicitação de Revisão
   - Boletim
 
-# Funcionalidades
+# Fluxo das funcionalidades
