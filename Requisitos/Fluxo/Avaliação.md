@@ -1,30 +1,41 @@
 # Análise do fluxo do processo de gestão da avaliação
-## Atores envolvidos
+## Atores envolvidos e ações no sistema
 
 - *Secretária*
 
-   - Fechamento de Prazos
-   - Conferência de médias finais
-   - Mapa de Notas
-   - Boletim
-   - Histórico 
+  - Abertura de Bimestre
 
-- *Coordenado (a) / Diretor (a)*
+    - 1º Avaliação
+    - 2º Avaliação
+    - Recuperação Paralela
+    - 3º Avaliação
+    - 4º Avaliação
+    - Recuperação Final
 
-   - Monitoramento de Prazos
-   - Análise de desmpenho
-   - Medição de conflitos de nota
+  - Gerenciamento de Prazos
+  - Auditoria de Médias
+  - Emissão de Documentos
+
+    - Mapa de Notas
+    - Boletim
+    - Histórico 
+
+- *Diretor (a) e Coordenador (a)*
+
+  - Análise de Indicadores: Visualização de taxas de aprovação, reprovação e evasão
+  - Revisão de notas
+  - Dashboard de Gestão: Monitoramento de prazos e cumprimento do calendário
 
 - *Professor (es)*
 
-   - Elaboração de provas
-   - Lançamento de notas
-   - Lançamento de frequência
-   - Diário de Classe
+  - Lançamento de notas
+  - Lançamento de frequência
+  - Diário de Classe
+  - Revisão de notas
 
 - *Aluno (a) e Responsável (eis)*
   
-  - Conflitos de notas
+  - Solicitação de Revisão
   - Boletim
 
 # Funcionalidades
