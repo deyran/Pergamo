@@ -81,12 +81,12 @@
 
 - *AVA_MP_Aluno*: Mapa de Notas do Aluno
 
-    - IdMpAluno       : AutoIncremento
-    - IdMpEtapa   (PK): IdMpEtapa - AVA_MP_Etapa
-    - idAluno     (PK): IdPessoa - ADM_Pessoa
-    - IdDiscProf  (PK): IdDiscProf - PED_DiscProf
-    - IdTurma     (PK): IdTurma - PED_Turma
-    - NotaFinal       : É consolidação NotaAva - AVA_MP_AvaliacaoAluno
+  - IdMpAluno       : AutoIncremento
+  - IdMpEtapa   (PK): IdMpEtapa - AVA_MP_Etapa
+  - idAluno     (PK): IdPessoa - ADM_Pessoa
+  - IdDiscProf  (PK): IdDiscProf - PED_DiscProf
+  - IdTurma     (PK): IdTurma - PED_Turma
+  - NotaFinal       : É consolidação NotaAva - AVA_MP_AvaliacaoAluno
 
 - *AVA_MP_Boletim*: Mapa de Notas do Aluno
 
