@@ -11,16 +11,21 @@
     - CPF
     - Sexo
     - DataNas
-    - Naturalidade: Estado de nascimento.
+    - Naturalidade: PA, BA, SP...
     - Nacionalidade: País de origem.
-    - EstadoCivil: Solteiro, casado, divorciado, viúvo ou união estável.
+    - EstadoCivil: 
+        0: Solteiro
+        1: Casado
+        2: Divorciado
+        3: Viúvo 
+        4: União estável
 
 - ADM_Endereco
 
     - IdEndereco
     - Logradouro: O nome da via (Rua, Avenida, Alameda, Travessa, etc.).
     - Número: A identificação específica do imóvel na via.
-    - Complemento (Opcional): Informações adicionais para localizar a unidade (Apartamento 102, Bloco B, Fundos, Sala 5).
+    - Complemento: Opcional, Informações adicionais
     - Bairro: A subdivisão da cidade ou distrito.
     - Cidade: O nome do município.
     - UF
