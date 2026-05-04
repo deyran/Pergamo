@@ -31,7 +31,7 @@
   0     | 0 (1º Avaliação)| 1 (Marcos-Português)  | 0 (9º ano-2026) | 5 (Sarau) | 10-04-26
 
 
-- *AVA_MP_AvaliacaoDesc*
+- *AVA_MP_AvaliacaoDesc*: *IdAvaDesc-AVA_MP_Avaliacao*
 
   - IdAvaDesc (PK)
   - Descricao

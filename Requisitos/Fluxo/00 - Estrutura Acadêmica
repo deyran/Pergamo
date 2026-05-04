@@ -1,0 +1,9 @@
+# PFlow - Requisitos
+## Fluxo - Estrutura Acadêmica
+
+### Gestão de Turmas
+
+    - Definir turmas baseados em classes
+    - Definir disciplinas vinculadas a cada turma e sua respectiva carga horária
+    - Difenir qual professor vair ministrar qual disciplina em qual turma
+    - Caso aja registro do ano anterior, poder ser copiado para o ano atual
