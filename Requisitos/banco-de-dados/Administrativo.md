@@ -3,16 +3,20 @@
 
 ### Projeto
 
-- ADM_Pessoa
+- *ADM_Pessoa*
 
-    - IdPessoa
+    - IdPessoa: AutoIncremento
     - Nome
     - RG
     - CPF
     - Sexo
-    - DataNas
-    - Naturalidade: PA, BA, SP...
-    - Nacionalidade: País de origem.
+    - DataNasc
+    - Naturalidade: Texto com dois caracteres
+    
+      - PA
+      - BA
+      - SP
+    
     - EstadoCivil: 
         0: Solteiro
         1: Casado
@@ -45,20 +49,22 @@
 
 ### SQL
 
-CREATE TABLE ADM_Pessoa 
-(
-    IdPessoa      INTEGER PRIMARY KEY AUTOINCREMENT,
-    Nome          TEXT NOT NULL,
-    RG            TEXT,
-    CPF           TEXT UNIQUE,
-    Sexo          TEXT CHECK(Sexo IN ('M', 'F', 'Outro')),
-    DataNas       TEXT, -- Formato esperado: YYYY-MM-DD
-    Naturalidade  TEXT,
-    Nacionalidade TEXT DEFAULT 'Brasileira',
-    EstadoCivil   TEXT CHECK(EstadoCivil IN ('Solteiro', 'Casado', 'Divorciado', 'Viúvo', 'União Estável'))
+- *ADM_Pessoa*
+
+CREATE TABLE ADM_Pessoa (
+    IdPessoa     INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nome         TEXT NOT NULL,
+    RG           TEXT,
+    CPF          TEXT UNIQUE,
+    Sexo         TEXT,
+    DataNasc     DATE,
+    -- Naturalidade limitada a 2 caracteres (ex: PA, BA, SP)
+    Naturalidade TEXT CHECK(length(Naturalidade) <= 2),
+    -- EstadoCivil conforme a legenda: 0-Solteiro, 1-Casado, 2-Divorciado, 3-Viúvo, 4-União Estável
+    EstadoCivil  INTEGER CHECK(EstadoCivil BETWEEN 0 AND 4)
 );
 
--- ========================================================================================
+- *ADM_Endereco*
 
 CREATE TABLE ADM_Endereco 
 (
