@@ -24,25 +24,26 @@
 
 - *PED_TurmaAluno*
     
-  - IdTurma PK: IdTurma-PED_Turma
-  - IdAluno PK: IdPessoa-ADM_Pessoa
+  - IdTurma (PK): IdTurma-PED_Turma
+  - IdAluno (PK): IdPessoa-ADM_Pessoa
   - Status:
   
       0: Matrículado; 
       1: Trancado;
       2: Transferido;
 
-- PED_Disciplina
+- *PED_Disciplina*
   
-  - IdDisciplina
+  - IdDisciplina (PK)
+  - CategoriaMec
   - Descricao
   - Abreviado
 
 - PED_DiscProf
 
-  - IdDiscProf
-  - IdDisciplina
-  - IdProfessor
+  - IdDiscProf: AutoIncremento
+  - IdDisciplina (PK): IdDisciplina-PED_Disciplina
+  - IdProfessor (PK): IdPessoa-ADM_Pessoa
 
 - PED_Grade: Planejamento de horários da turma
 
@@ -163,3 +164,73 @@
   ORDER BY 
       T.Descricao ASC, 
       P.Nome ASC;
+
+
+- *PED_Disciplina*
+
+  CREATE TABLE PED_Disciplina (
+      IdDisciplina INTEGER PRIMARY KEY AUTOINCREMENT,
+      CategoriaMec TEXT NOT NULL,
+      Descricao    TEXT NOT NULL,
+      Abreviado    TEXT NOT NULL
+  );
+
+  INSERT INTO PED_Disciplina (CategoriaMec, Descricao, Abreviado) VALUES 
+  ('Ciências da Natureza', 'Ciências físicas e biológicas', 'CFB'),
+  ('Ciências Humanas', 'Filosofia', 'Filosofia'),
+  ('Ciências Humanas', 'Geografia', 'Geografia'),
+  ('Ciências Humanas', 'História', 'História'),
+  ('Ciências Humanas', 'Sociologia', 'Sociologia'),
+  ('Diversificado', 'Educação financeira', 'E. Financeira'),
+  ('Diversificado', 'Empreendedorismo', 'Empreend.'),
+  ('Diversificado', 'Estudos amazônicos', 'E. Amazônicos'),
+  ('Diversificado', 'Laboratório', 'Laboratório'),
+  ('Ensino Religioso', 'Ensino religioso', 'Religião'),
+  ('Linguagens', 'Artes', 'Artes'),
+  ('Linguagens', 'Educação física', 'E. Física'),
+  ('Linguagens', 'Língua Inglesa', 'Inglês'),
+  ('Linguagens', 'Língua portuguesa', 'Português'),
+  ('Linguagens', 'Literatura', 'Literatura'),
+  ('Linguagens', 'Música', 'Música'),
+  ('Linguagens', 'Redação', 'Redação'),
+  ('Pedagogia', 'Pedagogia', 'Pedagogia'),
+  ('Matemática', 'Matemática', 'Matemática');
+
+  SELECT * FROM PED_Disciplina;
+
+- *PED_DiscProf*
+
+  CREATE TABLE PED_DiscProf (
+      IdDiscProf  INTEGER PRIMARY KEY AUTOINCREMENT,
+      IdDisciplina INTEGER NOT NULL,
+      IdProfessor  INTEGER NOT NULL,
+      -- Garantindo que o mesmo professor não seja vinculado duas vezes à mesma disciplina
+      UNIQUE(IdDisciplina, IdProfessor),
+      FOREIGN KEY (IdDisciplina) REFERENCES PED_Disciplina (IdDisciplina),
+      FOREIGN KEY (IdProfessor) REFERENCES ADM_Pessoa (IdPessoa)
+  );
+  -- ========================================================================
+
+  INSERT INTO PED_DiscProf (IdProfessor, IdDisciplina) VALUES 
+  (99, 19),  -- Karla Cristina De Araújo Reis -> Matemática
+  (100, 1),  -- Lauro Alcides Cordeiro Neto -> Ciências físicas e biológicas
+  (101, 15), -- Israel Henrique Cavalcante Mendonça -> Literatura
+  (102, 3),  -- Michelle Gomes Garcia Fernandes Prestes -> Geografia
+  (103, 4),  -- Luciano Almeida Da Silva -> História
+  (109, 19), -- Sara Machado De Souza -> Matemática
+  (110, 13), -- Isabela Cristina De Matos Fernandes -> Língua Inglesa
+  (111, 14), -- Marcos Henrique De Oliveira Zanotti Rosi -> Língua portuguesa
+  (104, 18), -- Josiani Melo Monteiro -> Pedagogia
+  (105, 18), -- Maria Do Socorro Santos Raiol -> Pedagogia
+  (107, 18), -- Janete Bentes Pereira -> Pedagogia
+  (108, 18), -- Ana Claudia Santos Cruz -> Pedagogia
+  (112, 12); -- William Lima Pereira -> Educação física  
+  -- ========================================================================
+
+  SELECT 
+    P.Nome AS Professor,
+    D.Descricao AS Disciplina
+  FROM PED_DiscProf DP
+  INNER JOIN ADM_Pessoa P ON DP.IdProfessor = P.IdPessoa
+  INNER JOIN PED_Disciplina D ON DP.IdDisciplina = D.IdDisciplina
+  ORDER BY P.Nome ASC, D.Descricao ASC;
