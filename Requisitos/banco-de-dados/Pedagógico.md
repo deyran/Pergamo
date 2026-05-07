@@ -39,7 +39,7 @@
   - Descricao
   - Abreviado
 
-- PED_DiscProf
+- *PED_DiscProf*
 
   - IdDiscProf: AutoIncremento
   - IdDisciplina (PK): IdDisciplina-PED_Disciplina
