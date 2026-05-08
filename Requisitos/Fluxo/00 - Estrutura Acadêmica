@@ -2,13 +2,16 @@
 ## Sistema de Gestão de processos Escolar
 
 1. Administrativo
-2. Orgranização pedagógica
+
+   - Efetuar matrícula
+   - Definir usuários
+   - Definir valores para alunos
+
+2. Pedagogia - Gestão de turmas
+     
+   - Definir turmas baseados em classes
+   - Definir Professor, disciplia e turmas
+   - Definir grade de horário  
+
 3. Processo de avaliação
 4. Departamento financeiro
-
-### Gestão de Turmas
-
-    - Definir turmas baseados em classes
-    - Definir disciplinas vinculadas a cada turma e sua respectiva carga horária
-    - Difenir qual professor vair ministrar qual disciplina em qual turma
-    - Caso aja registro do ano anterior, poder ser copiado para o ano atual

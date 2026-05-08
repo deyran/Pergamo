@@ -7,7 +7,7 @@
 
   - IdClasse: AutoIncremento
   - Descricao
-  - Nivel: 0 - Fundamental I; 1 - Fundamental II; 2 - Médio
+  - Nivel   : 0 - Fundamental I; 1 - Fundamental II; 2 - Médio
 
 - *PED_Disciplina*
   
@@ -16,17 +16,24 @@
   - Descricao
   - Abreviado
 
+- *PED_DisciplinaProfessor*
+
+  - IdDisciplina  (PK): IdDisciplina-PED_Disciplina 
+  - IdProfessor   (PK): IdPessoa-ADM_Pessoa
+
 - *PED_Turma*
 
   - IdTurma
   - IdClasse: IdClasse-PED_Classe
   - Descricao
   - AnoLetivo
-  - Turno: 
+  - Turno:
+   
       0: Matutino; 
       1: Vespertino; 
       2: Noturno; 
       3: Integral;
+      
   - CapMaxima
 
 - *PED_TurmaAluno*
@@ -41,42 +48,39 @@
 
 - *PED_TurmaProfessor*
 
-  - IdTurmaProf       : AutoIncremento
-  - IdTurma       (PK): IdTurma-PED_Turma
-  - IdProfessor   (PK): IdPessoa-ADM_Pessoa
-  - IdDisciplina  (PK): IdDisciplina-PED_Disciplina
+  - IdTurmaProf     : AutoIncremento
+  - IdTurma     (PK): IdTurma-PED_Turma
+  - IdDiscProf  (FK): IdDiscProf-PED_DisciplinaProfessor
   
-- PED_Grade: Planejamento de horários da turma
+- *PED_Grade*: Planejamento de horários da turma
 
-  - IdGrade
-  - IdTurma
-  - DiaSemana: 0 - Domingo; ... ; 6 - Sábado
-  - Inicio: 00:00
-  - Fim: 00:00
-  - Tipo: 0 - Aula; 1 - Intervalo
+  - IdGrade (PK):
+  - IdTurma (PK): IdTurma-PED_Turma
+  - DiaSemana   : 0 - Domingo; ... ; 6 - Sábado
+  - Inicio      : 00:00
+  - Fim         : 00:00
+  - Tipo        : 0 - Aula; 1 - Intervalo
 
-- PED_GradeAula: Planejamento de horários das aulas e professor. Somente Grade do tipo 0
+- *PED_GradeAula*: Planejamento de horários das aulas e professor. Somente Grade do tipo 0
   
   - IdGradeAula	
-  - IdGrade
-  - IdProfessor
-  - IdDisciplina
+  - IdGrade     (FK): IdGrade-PED_Grade
+  - IdDiscProf  (FK): IdDiscProf-PED_DisciplinaProfessor
 
-- PED_Aula: Registro de aulas de fato executadas
+- *PED_Aula*: Registro de aulas de fato executadas
 
   - IdAula
   - IdGradeAula : Aula Planejada
-  - IdProfessor : Aula realizada
-  - IdDisciplina: Aula realizada
+  - IdDiscProf  : Aula realizada
   - DataAula
   - HoraAula
   - StatusAula  : 0 - Presencial; 1 - Ead; 2 - Externa;
 
-- PED_Frequencia: OBS: O não registro de aluna implica em falta 
+- *PED_Frequencia*: OBS: O não registro de aluna implica em falta 
 
-  - IdAula
-  - IdAluno
-  - StatusFreq: 0 - Presente; 1 - Justificado
+  - IdAula  (PK)
+  - IdAluno (FK): IdPessoa-ADM_Pessoa
+  - Status      : 0 - Presente; 1 - Justificado
 
 ### SQL
 
