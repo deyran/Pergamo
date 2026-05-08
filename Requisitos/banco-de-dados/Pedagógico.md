@@ -9,6 +9,13 @@
   - Descricao
   - Nivel: 0 - Fundamental I; 1 - Fundamental II; 2 - Médio
 
+- *PED_Disciplina*
+  
+  - IdDisciplina (PK)
+  - CategoriaMec
+  - Descricao
+  - Abreviado
+
 - *PED_Turma*
 
   - IdTurma
@@ -32,19 +39,13 @@
       1: Trancado;
       2: Transferido;
 
-- *PED_Disciplina*
+- *PED_TurmaProfessor*
+
+  - IdTurmaProf       : AutoIncremento
+  - IdTurma       (PK): IdTurma-PED_Turma
+  - IdProfessor   (PK): IdPessoa-ADM_Pessoa
+  - IdDisciplina  (PK): IdDisciplina-PED_Disciplina
   
-  - IdDisciplina (PK)
-  - CategoriaMec
-  - Descricao
-  - Abreviado
-
-- *PED_DiscProf*
-
-  - IdDiscProf: AutoIncremento
-  - IdDisciplina (PK): IdDisciplina-PED_Disciplina
-  - IdProfessor (PK): IdPessoa-ADM_Pessoa
-
 - PED_Grade: Planejamento de horários da turma
 
   - IdGrade
@@ -58,16 +59,18 @@
   
   - IdGradeAula	
   - IdGrade
-  - IdDiscProf
+  - IdProfessor
+  - IdDisciplina
 
 - PED_Aula: Registro de aulas de fato executadas
 
   - IdAula
-  - IdGradeAula: Aula Planejada
-  - IdDiscProf: Aula realizada
+  - IdGradeAula : Aula Planejada
+  - IdProfessor : Aula realizada
+  - IdDisciplina: Aula realizada
   - DataAula
   - HoraAula
-  - StatusAula: 0 - Presencial; 1 - Ead; 2 - Externa;
+  - StatusAula  : 0 - Presencial; 1 - Ead; 2 - Externa;
 
 - PED_Frequencia: OBS: O não registro de aluna implica em falta 
 

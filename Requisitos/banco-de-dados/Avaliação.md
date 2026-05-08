@@ -9,26 +9,26 @@
 
   - IdMpEtapa (PK)
   - Descricao
+  - DescAbv
 
-    IdMpEtapa | Descricao
-    0         | 1º Avaliação
-    1         | 2º Avaliação
-    2         | Recuperação Paralela
-    3         | 3 Avaliação
-    4         | 4 Avaliação
-    5         | Recuperação Final
+    IdMpEtapa | Descricao             | DescAbv
+    0         | 1º Avaliação          | 1º AV
+    1         | 2º Avaliação          | 2º AV
+    2         | Recuperação Paralela  | Rec.P
+    3         | 3 Avaliação           | 3º AV
+    4         | 4 Avaliação           | 4º AV
+    5         | Recuperação Final     | Rec.F
 
 - *AVA_MP_Avaliacao*
 
   - IdAva       (PK)
   - IdMpEtapa   (FK): IdMpEtapa - AVA_MP_Etapa
-  - IdDiscProf  (FK): IdDiscProf - PED_DiscProf
-  - IdTurma     (FK): IdTurma - PED_Turma
+  - IdTurmaProf (FK): IdTurmaProf-PED_TurmaProfessor
   - IdAvaDesc   (FK): IdAvaDesc - AVA_MP_AvaliacaoDesc
   - DataAva
 
-  IdAva | IdMpEtapa       | IdDiscProf            | IdTurma         | IdAvaDesc | DataAva
-  0     | 0 (1º Avaliação)| 1 (Marcos-Português)  | 0 (9º ano-2026) | 5 (Sarau) | 10-04-26
+  IdAva | IdMpEtapa       | IdTurmaProf                       | IdAvaDesc | DataAva
+  0     | 0 (1º Avaliação)| 1 (Marcos-Português-9º ano-2026)  | 5 (Sarau) | 10-04-26
 
 
 - *AVA_MP_AvaliacaoDesc*: *IdAvaDesc-AVA_MP_Avaliacao*
@@ -95,16 +95,19 @@
 
   CREATE TABLE AVA_MP_Etapa (
     IdMpEtapa INTEGER PRIMARY KEY,
-    Descricao TEXT NOT NULL
+    Descricao TEXT NOT NULL,
+    DescAbv TEXT NOT NULL
   );
 
-  INSERT INTO AVA_MP_Etapa (IdMpEtapa, Descricao) VALUES
-  (0, '1º Avaliação'),
-  (1, '2º Avaliação'),
-  (2, 'Recuperação Paralela'),
-  (3, '3º Avaliação'),
-  (4, '4º Avaliação'),
-  (5, 'Recuperação Final');
+  INSERT INTO AVA_MP_Etapa (IdMpEtapa, Descricao, DescAbv) VALUES
+  (0, '1º Avaliação', '1º AV'),
+  (1, '2º Avaliação', '2º AV'),
+  (2, 'Recuperação Paralela', 'Rec.P'),
+  (3, '3º Avaliação', '3º AV'),
+  (4, '4º Avaliação', '4º AV'),
+  (5, 'Recuperação Final', 'Rec.F');
+
+  SELECT * FROM AVA_MP_Etapa;
 
 - *AVA_MP_Avaliacao*
 
