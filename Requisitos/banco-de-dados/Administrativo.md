@@ -78,7 +78,7 @@
         CEP         TEXT NOT NULL                        -- Formato esperado: 00000-000
     );
 
-    -- ========================================================================================
+- *ADM_EnderecoPes*
 
     CREATE TABLE ADM_EnderecoPes 
     (
@@ -94,7 +94,7 @@
             ON DELETE CASCADE
     );
 
-    -- ========================================================================================
+- *ADM_Contato*
 
     CREATE TABLE ADM_Contato 
     (
