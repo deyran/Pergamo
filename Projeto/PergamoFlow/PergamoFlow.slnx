@@ -1,5 +1,7 @@
 <Solution>
-  <Project Path="PFlow-Database/PFlow-Database.csproj" />
-  <Project Path="PFlow-Desktop/PFlow-Desktop.csproj" />
-  <Project Path="PFlow-Domain/PFlow-Domain.csproj" />
+  <Project Path="PFlow-Database/PFlow-Database.csproj" Id="f63ea343-b5ad-4586-a3f9-5ad06b735d7a" />
+  <Project Path="PFlow-Desktop/PFlow-Desktop.csproj" Id="a7b674d2-f8ab-430d-9100-57f44fefe8f0">
+    <Deploy Solution="Debug|*" />
+  </Project>
+  <Project Path="PFlow-Domain/PFlow-Domain.csproj" Id="7a864932-054d-4e12-928f-7aff88fdd93f" />
 </Solution>
