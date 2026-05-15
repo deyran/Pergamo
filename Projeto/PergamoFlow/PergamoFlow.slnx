@@ -4,4 +4,7 @@
     <Deploy Solution="Debug|*" />
   </Project>
   <Project Path="PFlow-Domain/PFlow-Domain.csproj" Id="7a864932-054d-4e12-928f-7aff88fdd93f" />
+  <Project Path="PFlow-Mobile/PFlow-Mobile.csproj" Id="3bebf44a-2ec9-422f-b52b-2251f78059fc">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>
