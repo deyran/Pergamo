@@ -23,10 +23,16 @@ namespace PFlow_Desktop
                         var nativeWindow = handler.PlatformView as Microsoft.UI.Xaml.Window;
                         if (nativeWindow != null)
                         {
+                            // Força o título na janela nativa imediatamente
+                            nativeWindow.Title = "PFlow";
+
                             var windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(nativeWindow);
                             var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(windowHandle);
                             var appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
                             var presenter = appWindow.Presenter as Microsoft.UI.Windowing.OverlappedPresenter;
+
+                            // ADICIONE ESTA LINHA AQUI:
+                            appWindow.Title = "PFlow";
 
                             if (presenter != null)
                             {
@@ -59,6 +65,8 @@ namespace PFlow_Desktop
 #endif
             });
             //-------------------------
+
+            window.Title = "PFlow"; // Isso fala para o MAUI: "Não importa o que o Windows disse, o título é este"
 
             return window;
 
