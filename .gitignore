@@ -38,3 +38,4 @@ TestResults/
 
 # Arquivos gerados por ferramentas de cobertura de código como DotCover
 *.dotCover
+Projeto/PergamoFlow/PFlow-Domain/appsettings.json
