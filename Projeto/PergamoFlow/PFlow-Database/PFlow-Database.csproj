@@ -58,8 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrativo\Pessoa.cs" />
-    <Compile Include="Administrativo\PFlowContext.cs" />
+    <Compile Include="Administrativo\Entities\PessoaDB.cs" />
+    <Compile Include="Data\PFlowContext.cs" />
+    <Compile Include="Administrativo\Repository\PessoaRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,6 +70,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PFlow-Domain\PFlow-Domain.csproj">
+      <Project>{7a864932-054d-4e12-928f-7aff88fdd93f}</Project>
+      <Name>PFlow-Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using PFlow_Database.Administrativo;
+using PFlow_Database.Administrativo.Entities;
 
 namespace PFlow_Database.Administrativo
 {
@@ -8,6 +8,6 @@ namespace PFlow_Database.Administrativo
         public PFlowContext(): base("name=PFlowConnectionString")
         { }
 
-        public DbSet<Pessoa> Pessoas { get; set; }
+        public DbSet<PessoaDB> Pessoas { get; set; }
     }
 }

@@ -2,10 +2,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PFlow_Database.Administrativo
+namespace PFlow_Database.Administrativo.Entities
 {
     [Table("ADM_Pessoa")]
-    public class Pessoa
+    public class PessoaDB
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdPessoa { get; set; }
